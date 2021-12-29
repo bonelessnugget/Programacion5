@@ -6,20 +6,26 @@ Hacer este programa usando el método primo que ya tenéis construido.
 import java.util.Scanner;
 
 public class Main {
-	static void primos(int N){
-		for (int i = 1; i<N; i++) {
-			for (int j = 1; j<N; j++) {
-				if (j % i == 0 && j % j == 0) {
-					System.out.println(j);
-				}
-			}
+static void sonPrimos(int N) {
+	int contador = 0;
+	for(int i = 2; i < (N/2+1); i++) {
+		if (N % i == 0) {
+			contador++;
+			break;
 		}
 	}
+	if (contador == 0) {
+		System.out.println(N + " ");
+	}
+}
 	public static void main(String[] args) {
 	Scanner teclado = new Scanner(System.in);
 	System.out.println("Introduce un número: ");
 	int N = teclado.nextInt();
-	primos(N);
+	System.out.println("Los numeros primos antes que " + N + " ,incluido, son: ");
+	for (int i = 2; i <= N +1; i++) {
+		sonPrimos(i);
+	}
 	}
 
 }
